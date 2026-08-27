@@ -1,155 +1,79 @@
 "use client";
+import { useApp } from "../lib/AppContext";
 
 export default function Category() {
+  const { t } = useApp();
+
   const categories = [
-    {
-      number: "01",
-      name: "Jackets",
-      image:
-        "https://i.pinimg.com/1200x/bb/8e/6c/bb8e6c185b2e08a0ffa3f36613ad0d43.jpg",
-    },
-    {
-      number: "02",
-      name: "Outerwear",
-      image:
-        "https://i.pinimg.com/736x/d3/89/f6/d389f6dffa8a5d22828ee6d578477ba3.jpg",
-    },
-    {
-      number: "03",
-      name: "Sweatshirts",
-      image:
-        "https://i.pinimg.com/1200x/5c/b1/56/5cb156c2094a228bcbf37a9ade9805db.jpg",
-    },
-    {
-      number: "04",
-      name: "T-Shirts",
-      image:
-        "https://i.pinimg.com/1200x/6f/10/cf/6f10cfc9180b2e147167632a8337a5a7.jpg",
-    },
-    {
-      number: "05",
-      name: "Trousers",
-      image:
-        "https://i.pinimg.com/1200x/26/c2/9c/26c29c68a2b18bed8ca4c659999e746a.jpg",
-    },
-    {
-      number: "06",
-      name: "Accessories",
-      image:
-        "https://i.pinimg.com/736x/b4/81/18/b481186e1f6887b0cc02fc799f83c680.jpg",
-    },
+    { number: "01", name: "Jackets", count: 3, image: "https://i.pinimg.com/1200x/bb/8e/6c/bb8e6c185b2e08a0ffa3f36613ad0d43.jpg" },
+    { number: "02", name: "Outerwear", count: 4, image: "https://i.pinimg.com/736x/d3/89/f6/d389f6dffa8a5d22828ee6d578477ba3.jpg" },
+    { number: "03", name: "Sweatshirts", count: 2, image: "https://i.pinimg.com/1200x/5c/b1/56/5cb156c2094a228bcbf37a9ade9805db.jpg" },
+    { number: "04", name: "T-Shirts", count: 4, image: "https://i.pinimg.com/1200x/6f/10/cf/6f10cfc9180b2e147167632a8337a5a7.jpg" },
+    { number: "05", name: "Trousers", count: 2, image: "https://i.pinimg.com/1200x/26/c2/9c/26c29c68a2b18bed8ca4c659999e746a.jpg" },
+    { number: "06", name: "Accessories", count: 4, image: "https://i.pinimg.com/736x/b4/81/18/b481186e1f6887b0cc02fc799f83c680.jpg" },
   ];
 
   const selectCategory = (category) => {
-    window.dispatchEvent(
-      new CustomEvent("product-category-change", { detail: category })
-    );
-
-    document.getElementById("produk")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    window.dispatchEvent(new CustomEvent("product-category-change", { detail: category }));
+    document.getElementById("produk")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section
-      id="collections"
-      className="border-t border-white/10 bg-black text-white"
-    >
-      <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32 lg:px-14">
-
-        {/* HEADER */}
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+    <section id="collections" className="bg-black text-white border-t border-white/10">
+      <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">
-              Collection
-            </p>
-
-            <h2 className="mt-5 text-4xl font-light uppercase leading-none tracking-[-0.04em] md:text-6xl">
-              Explore
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">{t.catLabel}</p>
+            <h2 className="mt-4 text-3xl font-light uppercase leading-none tracking-[-0.04em] md:text-5xl">
+              {t.catTitle1}
               <br />
-              <span className="text-white/40">Categories.</span>
+              <span className="text-white/40">{t.catTitle2}</span>
             </h2>
           </div>
-
-          <p className="max-w-sm text-sm leading-7 text-white/40">
-            Explore technical garments developed around movement, material
-            and everyday function.
-          </p>
+          <p className="max-w-xs text-sm leading-6 text-white/40">{t.catDesc}</p>
         </div>
 
-        {/* CATEGORY GRID */}
-        <div className="mt-16 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => (
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:gap-5">
+          {categories.map((cat) => (
             <button
-              key={category.number}
+              key={cat.number}
               type="button"
-              onClick={() => selectCategory(category.name)}
-              className="group relative aspect-[4/5] w-full overflow-hidden bg-zinc-950 text-left"
+              onClick={() => selectCategory(cat.name)}
+              className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl text-left bg-zinc-900"
             >
-              {/* IMAGE */}
               <img
-                src={category.image}
-                alt={category.name}
+                src={cat.image}
+                alt={cat.name}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-75 transition-all duration-[1000ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-[1000ms] ease-out group-hover:scale-105 group-hover:opacity-100"
               />
-
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/10 transition-all duration-700 group-hover:from-black/80" />
-
-              {/* TOP NUMBER */}
-              <div className="absolute left-6 right-6 top-6 flex items-center justify-between">
-                <span className="text-[9px] uppercase tracking-[0.2em] text-white/45">
-                  Category
-                </span>
-
-                <span className="text-[10px] text-white/40">
-                  {category.number}
-                </span>
+              <div className="absolute inset-0 transition-all duration-500"
+                style={{ background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%)" }} />
+              <span className="absolute left-4 top-4 text-[9px] uppercase tracking-[0.2em] text-white/55">
+                {cat.number}
+              </span>
+              <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full border border-white/20 bg-black/30 px-2.5 py-1 opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:opacity-100">
+                <span className="text-[10px] font-medium text-white">{cat.count}</span>
+                <span className="text-[8px] uppercase tracking-[0.15em] text-white/60">products</span>
               </div>
-
-              {/* CONTENT */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
-                <div className="flex items-end justify-between gap-4">
-
-                  <div>
-                    <p className="mb-3 text-[9px] uppercase tracking-[0.2em] text-white/40 transition-colors duration-500 group-hover:text-white/70">
-                      Collection {category.number}
-                    </p>
-
-                    <h3 className="text-2xl font-light uppercase tracking-[-0.02em] md:text-3xl">
-                      {category.name}
-                    </h3>
-                  </div>
-
-                  {/* ARROW */}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 text-white transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-white group-hover:text-black">
-                    <span className="text-lg font-light">
-                      ↗
-                    </span>
-                  </div>
-                </div>
-
-                {/* HOVER LINE */}
-                <div className="mt-5 h-px w-0 bg-white/60 transition-all duration-700 group-hover:w-full" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <p className="mb-2 text-[8px] uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-white/80 text-white/50">
+                  {t.catCollection} {cat.number}
+                </p>
+                <h3 className="text-lg font-light uppercase tracking-[-0.02em] md:text-xl text-white">
+                  {cat.name}
+                </h3>
+                <div className="mt-3 h-px w-0 bg-white/50 transition-all duration-700 group-hover:w-full" />
               </div>
             </button>
           ))}
         </div>
 
-        {/* BOTTOM */}
-        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/30">
-            Six categories
-          </p>
-
-          <a
-            href="#produk"
-            onClick={() => selectCategory("All")}
-            className="text-[9px] uppercase tracking-[0.2em] text-white/50 transition-colors hover:text-white"
-          >
-            View all products →
+        <div className="mt-8 flex items-center justify-between pt-5 border-t border-white/10">
+          <span className="text-[9px] uppercase tracking-[0.2em] text-white/25">{t.catSix}</span>
+          <a href="#produk" onClick={() => selectCategory("All")}
+            className="text-[9px] uppercase tracking-[0.2em] text-white/50 transition-colors duration-300 hover:text-white">
+            {t.catViewAll}
           </a>
         </div>
       </div>

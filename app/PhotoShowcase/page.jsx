@@ -1,6 +1,6 @@
 "use client";
 
-import PhotoShowcase from "./components/PhotoShowcase";
+import PhotoShowcase from "../components/PhotoShowcase";
 
 export default function PhotoShowcasePage() {
   return (

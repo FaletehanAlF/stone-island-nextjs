@@ -1,158 +1,61 @@
 "use client";
-
 import { Star, Quote } from "lucide-react";
-
-const reviews = [
-  {
-    name: "Arya Wibowo",
-    location: "Jakarta, Indonesia",
-    image: "https://i.pravatar.cc/150?img=12",
-    rating: 5,
-    review:
-      "Materialnya terasa premium dan detail produknya sangat rapi. Jaket yang saya pilih juga nyaman dipakai untuk aktivitas sehari-hari.",
-  },
-  {
-    name: "Kenji Nakamura",
-    location: "Tokyo, Japan",
-    image: "https://i.pravatar.cc/150?img=32",
-    rating: 5,
-    review:
-      "Design yang clean dan functional. Saya suka bagaimana setiap detail terlihat sederhana tetapi tetap punya karakter yang kuat.",
-  },
-  {
-    name: "Luca Ferrara",
-    location: "Milan, Italy",
-    image: "https://i.pravatar.cc/150?img=52",
-    rating: 5,
-    review:
-      "Pengalaman berbelanja sangat baik. Produk terlihat persis seperti yang ditampilkan dan kualitas materialnya terasa sangat solid.",
-  },
-];
+import { useApp } from "../lib/AppContext";
 
 function Rating({ rating }) {
   return (
     <div className="flex items-center gap-1">
-      {Array.from({ length: 5 }).map((_, index) => (
-        <Star
-          key={index}
-          size={13}
-          strokeWidth={1.2}
-          fill={index < rating ? "currentColor" : "none"}
-          className="text-white"
-        />
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} size={12} strokeWidth={1.2} fill={i < rating ? "currentColor" : "none"} className="text-white" />
       ))}
     </div>
   );
 }
 
 export default function Review() {
+  const { t } = useApp();
+  const reviews = t.reviews;
+
   return (
-    <section
-      id="review"
-      className="border-t border-white/10 bg-black text-white"
-    >
-      <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32 lg:px-14">
-
-        {/* HEADER */}
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+    <section id="review" className="border-t border-white/10 bg-black text-white">
+      <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">
-              Field Notes
-            </p>
-
-            <h2 className="mt-5 text-4xl font-light uppercase leading-none tracking-[-0.04em] md:text-6xl">
-              What They
-              <br />
-              <span className="text-white/40">Wear.</span>
-            </h2>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40">{t.reviewLabel}</p>
+            <h2 className="mt-4 text-3xl font-light uppercase leading-none tracking-[-0.04em] md:text-5xl">{t.reviewTitle1}<br /><span className="text-white/40">{t.reviewTitle2}</span></h2>
           </div>
-
           <div className="max-w-sm">
-            <div className="flex items-center gap-3">
-              <Rating rating={5} />
-
-              <span className="text-sm text-white/60">
-                4.9 / 5
-              </span>
-            </div>
-
-            <p className="mt-4 text-sm leading-7 text-white/40">
-              Feedback from people who experience the collection in their
-              everyday environment.
-            </p>
+            <div className="flex items-center gap-3"><Rating rating={5} /><span className="text-sm text-white/60">4.9 / 5</span></div>
+            <p className="mt-3 text-sm leading-6 text-white/40">{t.reviewDesc}</p>
           </div>
         </div>
-
-        {/* REVIEWS */}
-        <div className="mt-16 grid gap-px bg-white/10 md:grid-cols-3">
-          {reviews.map((review, index) => (
-            <article
-              key={review.name}
-              className="group relative flex min-h-[390px] flex-col justify-between bg-zinc-950 p-7 transition-colors duration-500 hover:bg-zinc-900 md:p-9"
-            >
-              {/* TOP */}
-              <div>
-                <div className="flex items-start justify-between">
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-white/25">
-                    0{index + 1} / Review
-                  </span>
-
-                  <Quote
-                    size={22}
-                    strokeWidth={1}
-                    className="text-white/20 transition-colors duration-500 group-hover:text-white/50"
-                  />
-                </div>
-
-                {/* RATING */}
-                <div className="mt-10">
-                  <Rating rating={review.rating} />
-                </div>
-
-                {/* REVIEW TEXT */}
-                <blockquote className="mt-7 text-lg font-light leading-8 tracking-[-0.015em] text-white/80">
-                  “{review.review}”
-                </blockquote>
-              </div>
-
-              {/* USER */}
-              <div className="mt-10 flex items-center gap-4 border-t border-white/10 pt-6">
-
-                {/* PROFILE */}
-                <img
-                  src={review.image}
-                  alt={review.name}
-                  className="h-11 w-11 rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
-                />
-
+        <div className="mt-12 -mx-6 px-6 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-4" style={{ minWidth: "max-content" }}>
+            {reviews.map((review, index) => (
+              <article key={review.name} className="group relative flex w-[300px] shrink-0 flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-500 hover:border-white/20 hover:bg-white/[0.04] sm:w-[340px]">
                 <div>
-                  <p className="text-sm text-white">
-                    {review.name}
-                  </p>
-
-                  <p className="mt-1 text-[9px] uppercase tracking-[0.16em] text-white/35">
-                    {review.location}
-                  </p>
+                  <div className="flex items-start justify-between">
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-white/25">0{index + 1} {t.reviewNum}</span>
+                    <Quote size={18} strokeWidth={1} className="text-white/15 transition-colors duration-500 group-hover:text-white/40" />
+                  </div>
+                  <div className="mt-6"><Rating rating={5} /></div>
+                  <blockquote className="mt-5 text-[13px] font-light leading-6 tracking-[-0.01em] text-white/70">&ldquo;{review.review}&rdquo;</blockquote>
                 </div>
-
-                {/* VERIFIED */}
-                <span className="ml-auto text-[8px] uppercase tracking-[0.15em] text-white/30">
-                  Verified
-                </span>
-              </div>
-            </article>
-          ))}
+                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+                  <img src={review.image || `https://i.pravatar.cc/150?img=${index + 10}`} alt={review.name} className="h-9 w-9 rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" />
+                  <div>
+                    <p className="text-xs text-white">{review.name}</p>
+                    <p className="mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/30">{review.location}</p>
+                  </div>
+                  <span className="ml-auto text-[7px] uppercase tracking-[0.15em] text-white/25">{t.reviewVerified}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-
-        {/* BOTTOM */}
-        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/30">
-            Customer experience
-          </p>
-
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white/30">
-            2,000+ customers worldwide
-          </p>
+        <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
+          <span className="text-[9px] uppercase tracking-[0.2em] text-white/30">{t.reviewExp}</span>
+          <span className="text-[9px] uppercase tracking-[0.2em] text-white/30">{t.reviewCount}</span>
         </div>
       </div>
     </section>
