@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-black text-white">
       {/* ─── Left Panel ─── */}
-      <div className="relative hidden w-[45%] flex-col justify-between p-16 lg:flex bg-zinc-950">
+      <div className="relative hidden w-[45%] flex-col justify-between p-10 lg:flex bg-zinc-950">
         <Link
           href="/"
           className="relative z-20 flex items-center gap-2 text-xs tracking-widest uppercase transition-colors text-white/40 hover:text-white/70 anim-fade-up"
@@ -52,9 +52,9 @@ export default function Login() {
       </div>
 
       {/* ─── Right Panel ─── */}
-      <div className="flex w-full flex-col items-center justify-center overflow-y-auto px-8 sm:px-14 lg:px-20 lg:w-[55%]">
+      <div className="flex w-full flex-col items-center justify-center overflow-hidden px-8 sm:px-14 lg:px-16 lg:w-[55%]">
         {/* Mobile Header */}
-        <div className="mb-12 flex w-full flex-col gap-5 sm:hidden">
+        <div className="mb-6 flex w-full flex-col gap-3 sm:hidden">
           <Link
             href="/"
             className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] transition-colors text-white/30 hover:text-white/60"
@@ -66,10 +66,10 @@ export default function Login() {
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/30">
               Stone Island
             </p>
-            <p className="mt-4 text-3xl font-light uppercase tracking-tight anim-fade-up">
+            <p className="mt-2 text-3xl font-light uppercase tracking-tight anim-fade-up">
               {t.loginTitle}
             </p>
-            <p className="mt-3 text-sm leading-6 text-white/40 anim-fade-up anim-delay-1">
+            <p className="mt-2 text-sm leading-6 text-white/40 anim-fade-up anim-delay-1">
               {t.loginDesc}
             </p>
           </div>
@@ -77,14 +77,14 @@ export default function Login() {
 
         <div className="w-full max-w-[440px]">
           {/* Desktop Title */}
-          <div className="mb-14 hidden sm:block">
+          <div className="mb-8 hidden sm:block">
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/30 anim-fade-up">
               {t.loginLabel}
             </p>
-            <h1 className="mt-6 text-4xl font-light uppercase tracking-tight anim-fade-up anim-delay-1">
+            <h1 className="mt-4 text-4xl font-light uppercase tracking-tight anim-fade-up anim-delay-1">
               {t.loginTitle}
             </h1>
-            <p className="mt-5 max-w-[300px] text-sm leading-7 text-white/40 anim-fade-up anim-delay-2">
+            <p className="mt-3 max-w-[300px] text-sm leading-7 text-white/40 anim-fade-up anim-delay-2">
               {t.loginDesc}
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function Login() {
           </div>
 
           {/* Divider */}
-          <div className="my-9 flex items-center gap-4 anim-fade-up anim-delay-4">
+          <div className="my-5 flex items-center gap-4 anim-fade-up anim-delay-4">
             <div className="h-px flex-1 bg-white/10" />
             <span className="text-[10px] uppercase tracking-[0.2em] text-white/20 shrink-0">
               {t.loginOr}
@@ -124,9 +124,9 @@ export default function Login() {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8 anim-fade-up anim-delay-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 anim-fade-up anim-delay-5">
             <div>
-              <label className="mb-4 block text-[10px] uppercase tracking-[0.2em] text-white/35">
+              <label className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/35">
                 {t.loginEmailLabel}
               </label>
               <input
@@ -138,7 +138,7 @@ export default function Login() {
               />
             </div>
             <div>
-              <label className="mb-4 block text-[10px] uppercase tracking-[0.2em] text-white/35">
+              <label className="mb-2 block text-[10px] uppercase tracking-[0.2em] text-white/35">
                 {t.loginPassLabel}
               </label>
               <input
@@ -152,7 +152,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] py-4.5 text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] py-4 text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -165,7 +165,7 @@ export default function Login() {
             </button>
           </form>
 
-          <div className="mt-12 text-center anim-fade-up anim-delay-6">
+          <div className="mt-8 text-center anim-fade-up anim-delay-6">
             <p className="text-xs text-white/25">
               {t.loginNoAccount}{" "}
               <Link

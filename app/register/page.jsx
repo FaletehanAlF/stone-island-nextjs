@@ -35,7 +35,8 @@ export default function RegisterPage() {
     <div className="flex h-screen w-full overflow-hidden bg-black text-white">
       {/* Left Panel */}
       <div className="relative hidden lg:flex lg:w-[45%] flex-col overflow-hidden bg-zinc-950">
-        <div className="relative z-10 px-14 pt-14">
+        <div className="relative z-10 px-10 pt-10">
+
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] transition-colors text-white/30 hover:text-white/60 anim-fade-up"
@@ -43,10 +44,10 @@ export default function RegisterPage() {
             <span>&larr;</span> {t.loginBack}
           </Link>
         </div>
-        <div className="relative z-10 flex flex-1 items-center justify-center px-14 anim-scale anim-delay-2">
+        <div className="relative z-10 flex flex-1 items-center justify-center px-10 anim-scale anim-delay-2">
           <PhotoShowcase />
         </div>
-        <div className="relative z-10 px-14 pb-14 anim-fade-up anim-delay-4">
+        <div className="relative z-10 px-10 pb-10 anim-fade-up anim-delay-4">
           <span className="block text-[10px] uppercase tracking-[0.3em] mb-3 text-white/20">
             {t.regJoin}
           </span>
@@ -57,16 +58,16 @@ export default function RegisterPage() {
       </div>
 
       {/* Right Panel */}
-      <div className="flex h-screen w-full items-center justify-center px-8 py-12 sm:px-12 lg:w-[55%] overflow-hidden">
+      <div className="flex h-screen w-full items-center justify-center overflow-hidden px-8 sm:px-12 lg:w-[55%]">
         <div className="w-full max-w-[420px]">
           <Link
             href="/"
-            className="mb-10 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] transition-colors lg:hidden text-white/30 hover:text-white/60"
+            className="mb-6 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] transition-colors lg:hidden text-white/30 hover:text-white/60"
           >
             <span>&larr;</span> {t.loginBack}
           </Link>
 
-          <div className="mb-10 lg:hidden">
+          <div className="mb-6 lg:hidden">
             <span className="text-sm font-semibold tracking-[0.3em] text-white/70">
               STONE ISLAND
             </span>
@@ -75,13 +76,13 @@ export default function RegisterPage() {
           <span className="text-[10px] uppercase tracking-[0.3em] text-white/25 anim-fade-up">
             {t.regLabel}
           </span>
-          <h2 className="mt-4 text-3xl font-light tracking-tight anim-fade-up anim-delay-1">{t.regTitle}</h2>
-          <p className="mt-3 text-sm text-white/35 anim-fade-up anim-delay-2 leading-relaxed">
+          <h2 className="mt-3 text-3xl font-light tracking-tight anim-fade-up anim-delay-1">{t.regTitle}</h2>
+          <p className="mt-2 text-sm text-white/35 anim-fade-up anim-delay-2 leading-relaxed">
             {t.regDesc}
           </p>
 
           {/* Social Register */}
-          <div className="grid grid-cols-2 gap-4 mt-10 anim-fade-up anim-delay-3">
+          <div className="grid grid-cols-2 gap-3 mt-8 anim-fade-up anim-delay-3">
             <button
               type="button"
               className="flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-4 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] active:scale-[0.98]"
@@ -106,7 +107,7 @@ export default function RegisterPage() {
           </div>
 
           {/* Divider */}
-          <div className="my-9 flex items-center gap-4 anim-fade-up anim-delay-4">
+          <div className="my-6 flex items-center gap-4 anim-fade-up anim-delay-4">
             <div className="h-px flex-1 bg-white/10" />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/15 shrink-0">
               {t.regOr}
@@ -115,9 +116,9 @@ export default function RegisterPage() {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleRegister} className="space-y-7 anim-fade-up anim-delay-5">
+          <form onSubmit={handleRegister} className="space-y-5 anim-fade-up anim-delay-5">
             <div>
-              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-3">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-2">
                 {t.regUsername}
               </label>
               <input
@@ -131,7 +132,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-3">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-2">
                 {t.regEmail}
               </label>
               <input
@@ -145,7 +146,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-3">
+              <label className="block text-[10px] uppercase tracking-[0.2em] text-white/35 mb-2">
                 {t.regPass}
               </label>
               <div className="relative">
@@ -171,7 +172,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-6 flex w-full items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.04] py-4 text-[11px] font-medium uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 flex w-full items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.04] py-4 text-[11px] font-medium uppercase tracking-[0.22em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -183,7 +184,7 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="mt-10 text-center text-sm text-white/30 anim-fade-up anim-delay-6">
+          <p className="mt-8 text-center text-sm text-white/30 anim-fade-up anim-delay-6">
             {t.regHasAccount}{" "}
             <Link
               href="/login"
