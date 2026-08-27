@@ -27,8 +27,8 @@ export default function Login() {
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-black text-white">
-      {/* Left Panel */}
-      <div className="relative hidden w-[45%] flex-col justify-between p-14 lg:flex bg-zinc-950">
+      {/* ─── Left Panel ─── */}
+      <div className="relative hidden w-[45%] flex-col justify-between p-16 lg:flex bg-zinc-950">
         <Link
           href="/"
           className="relative z-20 flex items-center gap-2 text-xs tracking-widest uppercase transition-colors text-white/40 hover:text-white/70 anim-fade-up"
@@ -42,19 +42,19 @@ export default function Login() {
         </div>
 
         <div className="relative z-20 anim-fade-up anim-delay-4">
-          <p className="text-[10px] uppercase tracking-[0.3em] mb-2 text-white/30">
+          <p className="text-[10px] uppercase tracking-[0.3em] mb-3 text-white/30">
             {t.loginEst}
           </p>
-          <p className="max-w-[260px] text-xs leading-6 text-white/30">
+          <p className="max-w-[260px] text-xs leading-7 text-white/30">
             {t.loginBottomDesc}
           </p>
         </div>
       </div>
 
-      {/* Right Panel */}
-      <div className="flex w-full flex-col items-center justify-center px-8 sm:px-16 lg:w-[55%]">
+      {/* ─── Right Panel ─── */}
+      <div className="flex w-full flex-col items-center justify-center overflow-y-auto px-8 sm:px-14 lg:px-20 lg:w-[55%]">
         {/* Mobile Header */}
-        <div className="mb-10 flex w-full flex-col gap-4 sm:hidden">
+        <div className="mb-12 flex w-full flex-col gap-5 sm:hidden">
           <Link
             href="/"
             className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] transition-colors text-white/30 hover:text-white/60"
@@ -66,22 +66,25 @@ export default function Login() {
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/30">
               Stone Island
             </p>
-            <p className="mt-3 text-3xl font-light uppercase tracking-tight anim-fade-up">
+            <p className="mt-4 text-3xl font-light uppercase tracking-tight anim-fade-up">
               {t.loginTitle}
+            </p>
+            <p className="mt-3 text-sm leading-6 text-white/40 anim-fade-up anim-delay-1">
+              {t.loginDesc}
             </p>
           </div>
         </div>
 
-        <div className="w-full max-w-[420px]">
+        <div className="w-full max-w-[440px]">
           {/* Desktop Title */}
-          <div className="mb-12 hidden sm:block">
+          <div className="mb-14 hidden sm:block">
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/30 anim-fade-up">
               {t.loginLabel}
             </p>
-            <h1 className="mt-5 text-4xl font-light uppercase tracking-tight anim-fade-up anim-delay-1">
+            <h1 className="mt-6 text-4xl font-light uppercase tracking-tight anim-fade-up anim-delay-1">
               {t.loginTitle}
             </h1>
-            <p className="mt-4 max-w-[280px] text-sm leading-6 text-white/40 anim-fade-up anim-delay-2">
+            <p className="mt-5 max-w-[300px] text-sm leading-7 text-white/40 anim-fade-up anim-delay-2">
               {t.loginDesc}
             </p>
           </div>
@@ -90,7 +93,7 @@ export default function Login() {
           <div className="flex gap-3 anim-fade-up anim-delay-3">
             <button
               type="button"
-              className="flex flex-1 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] active:scale-[0.98]"
+              className="flex flex-1 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-4 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] active:scale-[0.98]"
             >
               <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -102,7 +105,7 @@ export default function Login() {
             </button>
             <button
               type="button"
-              className="flex flex-1 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-3.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] active:scale-[0.98]"
+              className="flex flex-1 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] py-4 text-sm font-medium text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] active:scale-[0.98]"
             >
               <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="#1877F2">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -112,7 +115,7 @@ export default function Login() {
           </div>
 
           {/* Divider */}
-          <div className="my-8 flex items-center gap-4 anim-fade-up anim-delay-4">
+          <div className="my-9 flex items-center gap-4 anim-fade-up anim-delay-4">
             <div className="h-px flex-1 bg-white/10" />
             <span className="text-[10px] uppercase tracking-[0.2em] text-white/20 shrink-0">
               {t.loginOr}
@@ -121,35 +124,35 @@ export default function Login() {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-7 anim-fade-up anim-delay-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-8 anim-fade-up anim-delay-5">
             <div>
-              <label className="mb-3 block text-[10px] uppercase tracking-[0.2em] text-white/35">
+              <label className="mb-4 block text-[10px] uppercase tracking-[0.2em] text-white/35">
                 {t.loginEmailLabel}
               </label>
               <input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border-0 border-b border-white/15 bg-transparent pb-3 text-sm text-white outline-none transition-colors focus:border-white/50"
+                className="w-full border-0 border-b border-white/15 bg-transparent pb-4 text-sm text-white outline-none transition-colors focus:border-white/50"
                 placeholder={t.loginEmailPh}
               />
             </div>
             <div>
-              <label className="mb-3 block text-[10px] uppercase tracking-[0.2em] text-white/35">
+              <label className="mb-4 block text-[10px] uppercase tracking-[0.2em] text-white/35">
                 {t.loginPassLabel}
               </label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border-0 border-b border-white/15 bg-transparent pb-3 text-sm text-white outline-none transition-colors focus:border-white/50"
+                className="w-full border-0 border-b border-white/15 bg-transparent pb-4 text-sm text-white outline-none transition-colors focus:border-white/50"
                 placeholder={t.loginPassPh}
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] py-4 text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] py-4.5 text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.08] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -162,7 +165,7 @@ export default function Login() {
             </button>
           </form>
 
-          <div className="mt-10 text-center anim-fade-up anim-delay-6">
+          <div className="mt-12 text-center anim-fade-up anim-delay-6">
             <p className="text-xs text-white/25">
               {t.loginNoAccount}{" "}
               <Link

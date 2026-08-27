@@ -28,7 +28,7 @@ export default function About() {
 
       <div className="anim-scale anim-delay-1 grid overflow-hidden border border-white/10 lg:grid-cols-2">
         <div className="group relative h-[420px] overflow-hidden md:h-[520px]">
-          <img src="https://i.pinimg.com/1200x/d5/1b/bb/d51bbb30d58a4b6b864636201a754f67.jpg" alt="Stone Island Fashion"
+          <img src="https://i.pinimg.com/736x/0f/84/12/0f8412fe9888d810238914e210e9b3dc.jpg" alt="Stone Island Fashion"
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
           <div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-white/60 to-transparent transition-all duration-700 group-hover:w-full" />
